@@ -14,5 +14,16 @@ module PersonalWebsite
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.action_mailer.smtp_settings = {
+    address: "send.one.com",
+    port: 587,
+    domain: "pearlyong.com",
+    user_name: "hello",
+    password: "Arus&pun2YAw",
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+  
   end
 end
+

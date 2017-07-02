@@ -1,2 +1,48 @@
-<h1>Welcome#index</h1>
-<%= link_to 'My Blog', controller:'articles' %>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <div class="fill" style="background-image: url(<%= asset_path 'pexels-photo-57565.jpeg' %>)">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Learn more about me here</h3>
+          <%= link_to 'Click here', about_path, class: 'btn btn-large btn-default' %>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="fill" style="background-image: url(<%= asset_path 'floral-pattern-background-354.jpg' %>)">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Contact me here</h3>
+          <%= link_to 'Click here', contact_path, class: 'btn btn-large btn-default' %>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="fill" style="background-image: url(<%= asset_path 'floral-pattern-background-625.jpg' %>)">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Visit my blog here</h3>
+          <%= link_to 'Click here', articles_path, class: 'btn btn-large btn-default' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div> <!-- Carousel -->
+
+<!--<div class="container">
+  <h1>Welcome!</h1>
+</div>-->

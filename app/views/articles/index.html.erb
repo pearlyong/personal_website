@@ -1,21 +1,23 @@
-<%= link_to 'New Article', new_article_path %>
-<h1>Listing articles</h1>
- 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-  </tr>
- 
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Delete', article_path(article),
-              method: :delete, 
-              data: { confirm: 'Are You Sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="container">
+  <div class="page-header">
+    <h1>Articles</h1>
+    <%= link_to 'Create New Article', new_article_path, class: 'btn btn-success', type: 'button'  %>
+  </div>
+  <div class="container">
+    <% @articles.each do |article| %>
+    <div class="col-md-4">
+      <h1><%= link_to article.title, article_path(article) %></h1>
+      <p><%= sanitize(article.text.truncate(500, separator: '</p>')) %></p>
+      <div class="label-actions">
+        <%= link_to 'View', article_path(article), class: 'label label-info' %>
+        <%= link_to 'Edit', edit_article_path(article), class: 'label label-warning' %>
+        <%= link_to 'Delete', article_path(article),
+                              class: 'label label-danger',
+                              method: :delete, 
+                              data: { confirm: 'Are You Sure?' } %>
+        <hr>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

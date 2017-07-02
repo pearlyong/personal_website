@@ -1,12 +1,10 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+<div class="page-header">
+  <h1><%= @article.title %></h1>
+</div>
 
-<%= link_to 'Edit Article', edit_article_path(@article) %> |
-<%= link_to 'Back to All Articles', articles_path %>
+<div class="container">
+  <%= link_to '<< Back to All Articles', articles_path %>
+  <br><br>
+  <p><%= @article.text %></p>
+  <%= link_to 'Edit Article', edit_article_path(@article), class: 'label label-warning' %>
+</div>

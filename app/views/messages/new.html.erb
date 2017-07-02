@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="page-header">
+    <h1>Contact</h1>
+  </div>
+
+  <div class="container">
+    <p>Email me <a href="mailto:ong.pearly@gmail.com">here</a> or find me on <a href="https://github.com/pegge" target="_blank">Github</a></p>
+    <p>Alternatively, please use this contact form:</p>
+    
+    <%= form_for @message, :html => { :class => "form-horizontal" }, url: contact_path do |message_form| %>
+      <!-- Error Messages -->
+      <% if @message.errors.any? %>
+        <div class="alert alert-danger alert-dismissable">
+          <button aria-hidden="true" class="close" data-dismiss="alert" type="button">&times;</button>
+          <h4>
+            <%= "#{pluralize(@message.errors.count, "error")} prohibited this user from being saved:" %>
+          </h4>
+          <ul>
+            <% @message.errors.full_messages.each do |msg| %>
+              <li>
+                <%= msg %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="row">
+        <div class="col-md-6">
+          <%= message_form.text_field :name, :class => 'form-control', placeholder: "Name"  %>
+        </div>
+        <div class="col-md-6">
+          <%= message_form.email_field :email, :class => 'form-control', placeholder: "Email"  %>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <div class="col-lg-12">
+            <%= message_form.text_area :content, :class => 'form-control form-contact-message', placeholder: "Message"  %>
+        </div>
+      </div>
+    
+    
+      <div class="form-group">
+        <div class="col-md-6">
+          <%= message_form.submit :class => 'btn btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+
+    <% flash.each do |key, value| %>
+      <div class="alert"><%= value %></div>
+    <% end %>
+
+  </div>
+</div>

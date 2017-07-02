@@ -1,0 +1,7 @@
+    <% @message.each do |message| %>
+    <div class="col-md-4">
+      <h1><%= message.name %></h1>
+      <p><%= message.email %></p>
+            <p><%= message.content %></p>
+    </div>
+    <% end %>
