@@ -11,7 +11,9 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     
+  respond_to do |format|
     if @message.save
+
       MessageMailer.new_message(@message).deliver
       redirect_to contact_path, notice: 'Your message has been sent.'
     else
