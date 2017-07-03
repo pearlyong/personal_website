@@ -9,16 +9,19 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
-    
-  respond_to do |format|
-    if @message.save
-
-      MessageMailer.new_message(@message).deliver
-      redirect_to contact_path, notice: 'Your message has been sent.'
-    else
-      flash[:alert] = 'An error occurred while delivering this message.'
-      render :new
+    @message = Message.new(params[:user])
+ 
+    respond_to do |format|
+      if @message.save
+        # Tell the UserMailer to send a welcome email after save
+        MessageMailer.welcome_email(@message).deliver
+ 
+        format.html { redirect_to(@message, notice: 'User was successfully created.') }
+        format.json { render json: @message, status: :created, location: @message }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @message.errors, status: :unprocessable_entity }
+      end
     end
   end
 
