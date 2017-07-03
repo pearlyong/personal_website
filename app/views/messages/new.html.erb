@@ -7,6 +7,7 @@
     <p>Email me <a href="mailto:ong.pearly@gmail.com">here</a> or find me on <a href="https://github.com/pegge" target="_blank">Github</a></p>
     <p>Alternatively, please use this contact form:</p>
     
+    <div class="col-sm-8">
     <%= form_for @message, :html => { :class => "form-horizontal" }, url: contact_path do |message_form| %>
       <!-- Error Messages -->
       <% if @message.errors.any? %>
@@ -25,25 +26,27 @@
         </div>
       <% end %>
     
-      <div class="row">
-        <div class="col-md-6">
+      <div class="form-group">
+        <div class="col">
           <%= message_form.text_field :name, :class => 'form-control', placeholder: "Name"  %>
         </div>
-        <div class="col-md-6">
+      </div>
+      
+      <div class="form-group">
+        <div class="col">
           <%= message_form.email_field :email, :class => 'form-control', placeholder: "Email"  %>
         </div>
       </div>
     
       <div class="form-group">
-        <div class="col-lg-12">
+        <div class="col">
             <%= message_form.text_area :content, :class => 'form-control form-contact-message', placeholder: "Message"  %>
         </div>
       </div>
-    
-    
+
       <div class="form-group">
-        <div class="col-md-6">
-          <%= message_form.submit :class => 'btn btn-primary' %>
+        <div class="col">
+          <%= message_form.submit :class => 'btn btn-success' %>
         </div>
       </div>
     <% end %>
@@ -51,6 +54,9 @@
     <% flash.each do |key, value| %>
       <div class="alert"><%= value %></div>
     <% end %>
+ </div>
 
-  </div>
-</div>
+
+    <div class="col-sm-4">
+      <div class="fb-page" data-href="https://www.facebook.com/TechLadies/" data-tabs="timeline" data-width="280px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/TechLadies/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/TechLadies/">TechLadies</a></blockquote></div>   
+    </div>

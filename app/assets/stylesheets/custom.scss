@@ -208,10 +208,6 @@ $border-color: rgba(black, .3);
 
 .btn-success {
   text-transform: uppercase;
-  text-align: center;
-  width: 200px;
-  margin: 0 auto;
-  display: block;
   border: 0;
 }
 
@@ -219,6 +215,12 @@ $border-color: rgba(black, .3);
   font-family: "Glyphicons Halflings";
   content: "\002b ";
   padding-right: 5px;
+}
+
+.btn-lg {
+  display: block;
+  width: 250px;
+  margin: 0 auto;
 }
 
 .glyphicon-plus:before {
