@@ -1,3 +1,1 @@
-# Ruby on Rails Tutorial
-
-## "hello, world!"
+# TechLadies Bootcamp - Technical Task Submission
